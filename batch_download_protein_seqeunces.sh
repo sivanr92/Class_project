@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define your email address (required by NCBI)
-EMAIL="snallattinputhurra2@unl.edu"
+EMAIL="yourmail@unl.edu"
 
 # Define the input file with protein IDs
 IDS_FILE="list_ids.txt"
