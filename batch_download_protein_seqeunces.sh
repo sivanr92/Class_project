@@ -22,7 +22,7 @@ FORMAT="fasta"
 > "$OUTPUT_FILE"
 
 # Loop through each protein ID in the input file and fetch in batches
-BATCH_SIZE=100
+BATCH_SIZE=500
 current_batch=0
 ids_in_batch=""
 
