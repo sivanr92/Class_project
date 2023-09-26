@@ -4,7 +4,7 @@
 EMAIL="yourmail@unl.edu"
 
 # Define the input file with protein IDs
-IDS_FILE="list_ids.txt"
+IDS_FILE="uniq_list_ids.txt"
 
 # Define the output file for the downloaded protein sequences
 OUTPUT_FILE="batch_protein_sequences.fasta"
