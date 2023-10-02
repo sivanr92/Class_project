@@ -19,7 +19,7 @@ DOI: https://doi.org/10.1016/j.jbc.2023.103038
 <li> Extraction of modules (based on the annotation) </li>
 <li>Construction of sequence similarity networks (SSN) using SSNpipe and analyzing SSNs based on characterized IDs from CAZy and EC numbers. </li>
 <li> Visualization of SSN networks using Cytoscape </li>
-<li> Phylogenentic Analysis </li>
-<li> Interpretation and Discussion</li>
+<li> Phylogenentic analysis </li>
+<li> Interpretation and discussion</li>
 </ol>
 
