@@ -33,7 +33,7 @@ for x in sorted(subfams):
 		if len(sub_ids)<=30:
 			random_sample=sub_ids
 		elif len(sub_ids)>= 30:
-			random_sample=random.sample(sub_ids,20)
+			random_sample=random.sample(sub_ids,30)
 		random_sample.extend(ids_common)
 		#print ("Random sample after adding the characterized ids",len(random_sample))
 		random_final.extend(random_sample)
