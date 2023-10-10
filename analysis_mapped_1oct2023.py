@@ -5,7 +5,7 @@ subfams_old=[int(x.split()[1]) for x in open("analysis/GROUPS_140_Info.txt").rea
 subfams=set([int(x.split()[1]) for x in open("analysis/GROUPS_140_Info.txt").readlines()[1:]])
 print (subfams)
 print ("Subfamily SubFam_seqs Char_seqs EC_nums")
-for x in sorted(subfams)[8:16]:
+for x in sorted(subfams): # edit with index numbers if you want to run and check. but not recommended. [8:16] was there. 
 	#print (f"Subfamily {x}:",subfams_old.count(x))
 	sub_ids=[]
 	if subfams_old.count(x)>=20:
