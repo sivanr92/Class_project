@@ -1,0 +1,69 @@
+
+Part1
+
+sh hmmscan-parser.sh gh31_hmmscan.out.dm > gh31_hmmscan.out.dm.ps
+
+
+
+
+cat gh31_hmmscan.out.dm.ps  | awk '$5<1e-15&&$10>0.35' > gh31_hmmscan.out.dm.ps .stringent
+
+
+
+
+
+
+
+
+Part2
+ml biopython
+
+cp ../Class_project/filter_modules_26sep2023.py .
+
+cp ../part1/batch_protein_sequences.fasta .
+cp ../part2/gh31_hmmscan.out.dm.ps.stringent .
+
+python filter_modules_26sep2023.py > extracted_domains.faa
+
+
+Part3
+wget https://github.com/ahvdk/SSNpipe/releases/download/v.1.0-beta/ssnpipe_unix.tar.gz
+
+tar –xvf ssnpipe_unix.tar.gz
+
+
+
+cp ../Class_project/analysis_mapped_1oct2023.py your_result_folder 
+cp ../part3/Characterized_ids_01oct2023.txt your_result_folder 
+
+python analysis_mapped_1oct2023.py 
+
+
+
+
+Part4
+cp ../Class_project/phylo_process_random_1oct2023.py .
+
+python phylo_process_random_1oct2023.py > phylo_input_fasttree_140.fasta
+
+
+srun  --nodes=1 --ntasks-per-node=10 --mem-per-cpu=1024 --pty $SHELL
+(use interactive node, srun to avoid the job being killed)
+
+ml mafft/7.520 
+mafft --localpair --maxiterate 1000 --genafpair --thread 10 phylo_input_fasttree_140.fasta > phylo_mafft_align_1e-140.fasta 
+
+
+part6
+
+ml fasttree/2.1 
+fasttree -wag -boot 100 -out tree_e-140.nwk phylo_mafft_align_1e-140.fasta
+
+python itol_color_strip.py GROUPS_140_Info.txt NodeTable_cs.txt output.txt --id_file list
+
+cat Characterized_ids_01oct2023.txt | awk -v FS='\t' -v OFS='\t' '{print$1"|GH31",$2}’ > ec.id.txt
+
+python ec.itol_color.py –input ec.id.txt --output itol_ec_color.txt
+
+
+
